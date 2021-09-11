@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://real_potions/Potion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://real_potions/SpacePotion.gd" type="Script" id=2]
+
+[node name="SpacePotion" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="1"]
+frame = 23
+
+[node name="DrinkCooldown" parent="." index="3"]
+wait_time = 5.0

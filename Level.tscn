@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://player/Brujilda.tscn" type="PackedScene" id=1]
+[ext_resource path="res://platforms/grass_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://background/Free DEMO Pixel Skies Background pack by Digital Moons/Parallax Pixel Skies 240x135px/Demo 02 Parallax Pixel Sky/demo02_PixelSky_layer03.png" type="Texture" id=3]
+[ext_resource path="res://background/Free DEMO Pixel Skies Background pack by Digital Moons/Parallax Pixel Skies 240x135px/Demo 02 Parallax Pixel Sky/demo02_PixelSky_layer01.png" type="Texture" id=4]
+[ext_resource path="res://background/Free DEMO Pixel Skies Background pack by Digital Moons/Parallax Pixel Skies 240x135px/Demo 02 Parallax Pixel Sky/demo02_PixelSky_layer02.png" type="Texture" id=5]
+[ext_resource path="res://TileMap.gd" type="Script" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://DmgArea.gd" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.4703, 31.5016 )
+
+[node name="Level" type="Node2D"]
+
+[node name="Sky" type="ParallaxBackground" parent="."]
+
+[node name="BackSky" type="ParallaxLayer" parent="Sky"]
+motion_offset = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 1440, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Sky/BackSky"]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="Sky"]
+motion_offset = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 1440, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Sky/Clouds"]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="FrontClouds" type="ParallaxLayer" parent="Sky"]
+motion_offset = Vector2( 0.9, 0.9 )
+motion_mirroring = Vector2( 1440, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Sky/FrontClouds"]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Brujilda" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 564.83, 401.795 )
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"platforms",
+]]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_layer = 4
+collision_mask = 11
+format = 1
+tile_data = PoolIntArray( 1835035, 0, 0, 1835036, 1, 0, 1835037, 1, 0, 1835038, 1, 0, 1835039, 1, 0, 1835040, 2, 0, 1835049, 0, 0, 1835050, 1, 0, 1835051, 1, 0, 1835052, 1, 0, 1835053, 1, 0, 1835054, 2, 0, 1900571, 6, 0, 1900572, 7, 0, 1900573, 7, 0, 1900574, 7, 0, 1900575, 7, 0, 1900576, 8, 0, 1900585, 6, 0, 1900586, 7, 0, 1900587, 7, 0, 1900588, 7, 0, 1900589, 7, 0, 1900590, 8, 0, 2162710, 0, 0, 2162711, 1, 0, 2162712, 1, 0, 2162713, 1, 0, 2162714, 1, 0, 2162715, 1, 0, 2162716, 1, 0, 2162717, 1, 0, 2162718, 1, 0, 2162719, 1, 0, 2162720, 1, 0, 2162721, 1, 0, 2162722, 1, 0, 2162723, 1, 0, 2162724, 1, 0, 2162725, 1, 0, 2162726, 1, 0, 2162727, 1, 0, 2162728, 1, 0, 2162729, 1, 0, 2162730, 1, 0, 2162731, 1, 0, 2162732, 1, 0, 2162733, 1, 0, 2162734, 1, 0, 2162735, 1, 0, 2162736, 1, 0, 2162737, 1, 0, 2162738, 1, 0, 2162739, 1, 0, 2162740, 2, 0, 2228246, 3, 0, 2228247, 16, 0, 2228248, 16, 0, 2228249, 16, 0, 2228250, 16, 0, 2228251, 16, 0, 2228252, 16, 0, 2228253, 16, 0, 2228254, 16, 0, 2228255, 16, 0, 2228256, 16, 0, 2228257, 16, 0, 2228258, 16, 0, 2228259, 16, 0, 2228260, 16, 0, 2228261, 16, 0, 2228262, 16, 0, 2228263, 16, 0, 2228264, 16, 0, 2228265, 16, 0, 2228266, 16, 0, 2228267, 16, 0, 2228268, 16, 0, 2228269, 16, 0, 2228270, 16, 0, 2228271, 16, 0, 2228272, 16, 0, 2228273, 16, 0, 2228274, 16, 0, 2228275, 16, 0, 2228276, 5, 0, 2293782, 6, 0, 2293783, 4, 0, 2293784, 4, 0, 2293785, 17, 0, 2293786, 4, 0, 2293787, 4, 0, 2293788, 4, 0, 2293789, 4, 0, 2293790, 4, 0, 2293791, 4, 0, 2293792, 4, 0, 2293793, 4, 0, 2293794, 4, 0, 2293795, 4, 0, 2293796, 4, 0, 2293797, 17, 0, 2293798, 17, 0, 2293799, 4, 0, 2293800, 4, 0, 2293801, 4, 0, 2293802, 4, 0, 2293803, 4, 0, 2293804, 4, 0, 2293805, 4, 0, 2293806, 4, 0, 2293807, 4, 0, 2293808, 17, 0, 2293809, 4, 0, 2293810, 4, 0, 2293811, 4, 0, 2293812, 8, 0, 2359319, 6, 0, 2359320, 7, 0, 2359321, 7, 0, 2359322, 7, 0, 2359323, 7, 0, 2359324, 7, 0, 2359325, 7, 0, 2359326, 7, 0, 2359327, 7, 0, 2359328, 7, 0, 2359329, 7, 0, 2359330, 7, 0, 2359331, 7, 0, 2359332, 7, 0, 2359333, 7, 0, 2359334, 7, 0, 2359335, 7, 0, 2359336, 7, 0, 2359337, 7, 0, 2359338, 7, 0, 2359339, 7, 0, 2359340, 7, 0, 2359341, 7, 0, 2359342, 7, 0, 2359343, 7, 0, 2359344, 7, 0, 2359345, 7, 0, 2359346, 7, 0, 2359347, 8, 0 )
+script = ExtResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 595.793, 388.871 )
+current = true
+zoom = Vector2( 0.6, 0.6 )
+
+[node name="DmgArea" type="Area2D" parent="."]
+visible = false
+position = Vector2( 704, 411 )
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="DmgArea"]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DmgArea"]
+shape = SubResource( 1 )
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="0" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 394.563, 505 )
+
+[node name="1" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 819.414, 505 )
+
+[node name="Players" type="Node" parent="."]

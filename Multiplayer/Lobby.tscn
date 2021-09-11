@@ -1,0 +1,156 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://KiriFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sniglet-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://lobby_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Multiplayer/Lobby.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Connect" type="Panel" parent="."]
+margin_left = 374.3
+margin_top = 74.4802
+margin_right = 893.3
+margin_bottom = 531.48
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinButton" type="Button" parent="Connect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -164.0
+margin_top = -130.0
+margin_right = 164.0
+margin_bottom = -65.0
+custom_fonts/font = SubResource( 1 )
+text = "Join Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HostButton" type="Button" parent="Connect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -164.0
+margin_top = 226.0
+margin_right = 164.0
+margin_bottom = 291.0
+custom_fonts/font = SubResource( 1 )
+text = "Host Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="Connect"]
+margin_left = 48.0
+margin_top = 33.0
+margin_right = 137.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 3 )
+text = "Name: "
+
+[node name="IpLabel" type="Label" parent="Connect"]
+margin_left = 39.8719
+margin_top = 95.0701
+margin_right = 128.872
+margin_bottom = 133.07
+custom_fonts/font = ExtResource( 3 )
+text = "IP:"
+align = 2
+
+[node name="Name" type="LineEdit" parent="Connect"]
+margin_left = 140.0
+margin_top = 29.0
+margin_right = 456.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 3 )
+text = "This Player"
+
+[node name="IPAddress" type="LineEdit" parent="Connect"]
+margin_left = 140.0
+margin_top = 89.7352
+margin_right = 456.0
+margin_bottom = 137.735
+custom_fonts/font = ExtResource( 3 )
+text = "127.0.0.1"
+
+[node name="ErrorLabel" type="Label" parent="Connect"]
+margin_left = 68.0
+margin_top = 154.0
+margin_right = 464.0
+margin_bottom = 211.0
+custom_colors/font_color = Color( 0.82, 0.29, 0.29, 1 )
+align = 1
+
+[node name="ErrorDialog" type="AcceptDialog" parent="."]
+margin_bottom = 58.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Players" type="Panel" parent="."]
+visible = false
+margin_left = 356.0
+margin_top = 30.0
+margin_right = 982.0
+margin_bottom = 693.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Players"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -125.0
+margin_top = 38.956
+margin_right = 125.0
+margin_bottom = 104.956
+custom_fonts/font = SubResource( 2 )
+text = "Waiting for an oponent"
+align = 1
+valign = 1
+
+[node name="StartButton" type="Button" parent="Players"]
+margin_left = 231.0
+margin_top = 578.0
+margin_right = 379.0
+margin_bottom = 633.0
+custom_fonts/font = SubResource( 3 )
+text = "Start!"
+
+[node name="List" type="ItemList" parent="Players"]
+margin_left = 22.0
+margin_top = 116.0
+margin_right = 234.0
+margin_bottom = 544.0
+
+[node name="LinkButton" type="LinkButton" parent="Players"]
+margin_left = 416.0
+margin_top = 596.0
+margin_right = 603.0
+margin_bottom = 617.0
+custom_fonts/font = SubResource( 4 )
+text = "Find your public IP address"

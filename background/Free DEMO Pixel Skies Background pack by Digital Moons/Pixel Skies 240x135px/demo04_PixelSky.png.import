@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/demo04_PixelSky.png-a23f1be0e90f6530504c0bf4f3b9b49e.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://background/Free DEMO Pixel Skies Background pack by Digital Moons/Pixel Skies 240x135px/demo04_PixelSky.png"
+dest_files=[ "res://.import/demo04_PixelSky.png-a23f1be0e90f6530504c0bf4f3b9b49e.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
