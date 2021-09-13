@@ -34,14 +34,18 @@ func enable() -> void:
 	$CollisionShape2D.disabled = false
 	_disabled = false
 
+func _destroy():
+	player.potion_index -= 1
+	queue_free()
+
 # Signal callbacks
 func _on_body_entered(body: Node):
 	if body != player:
-		queue_free()
+		_destroy()
 
 func _on_screen_exited() -> void:
 	if not _disabled:
-		queue_free()
+		_destroy()
 
 func _on_cooldown_finished() -> void:
-	queue_free()
+	_destroy()

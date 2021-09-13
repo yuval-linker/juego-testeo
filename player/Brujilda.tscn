@@ -18,7 +18,7 @@ resource_name = "Attack"
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -42,7 +42,7 @@ tracks/1/keys = {
 "values": [ 10 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -57,7 +57,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "Death"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -69,7 +69,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -81,7 +81,7 @@ tracks/1/keys = {
 "values": [ 10 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -99,7 +99,7 @@ length = 0.4
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -111,7 +111,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -123,7 +123,7 @@ tracks/1/keys = {
 "values": [ 15 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -139,7 +139,7 @@ tracks/2/keys = {
 resource_name = "Falling_Attack"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -151,7 +151,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -163,7 +163,7 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -180,7 +180,7 @@ resource_name = "Hit"
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -192,7 +192,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -204,7 +204,7 @@ tracks/1/keys = {
 "values": [ 4 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -221,7 +221,7 @@ resource_name = "Idle"
 length = 1.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -233,7 +233,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -245,7 +245,7 @@ tracks/1/keys = {
 "values": [ 13 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -261,7 +261,7 @@ tracks/2/keys = {
 resource_name = "Jump_Up_Attack"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -273,7 +273,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -285,7 +285,7 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -302,7 +302,7 @@ resource_name = "Jumping"
 length = 0.25
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -314,7 +314,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -326,7 +326,7 @@ tracks/1/keys = {
 "values": [ 15 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -343,7 +343,7 @@ resource_name = "Landing"
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -355,7 +355,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -367,7 +367,7 @@ tracks/1/keys = {
 "values": [ 15 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -385,7 +385,7 @@ length = 0.75
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -397,7 +397,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -409,7 +409,7 @@ tracks/1/keys = {
 "values": [ 16 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -426,7 +426,7 @@ resource_name = "Up"
 length = 0.4
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("DirectionNode/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -438,7 +438,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/path = NodePath("DirectionNode/Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -450,7 +450,7 @@ tracks/1/keys = {
 "values": [ 15 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("DirectionNode/Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -607,11 +607,6 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-hframes = 10
-frame = 9
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4.564 )
 shape = SubResource( 1 )
@@ -634,15 +629,22 @@ tree_root = SubResource( 55 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 56 )
 
-[node name="PotionSpawn" type="Position2D" parent="."]
-position = Vector2( 14.2252, 5.65355 )
-
 [node name="DirectionTimer" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="NameNode" type="Node2D" parent="."]
+[node name="DirectionNode" type="Node2D" parent="."]
 
-[node name="Label" type="Label" parent="NameNode"]
+[node name="PotionSpawn" type="Position2D" parent="DirectionNode"]
+position = Vector2( 14.2252, 5.65355 )
+
+[node name="Sprite" type="Sprite" parent="DirectionNode"]
+texture = ExtResource( 1 )
+hframes = 10
+frame = 9
+
+[node name="NameNode" type="Node2D" parent="DirectionNode"]
+
+[node name="Label" type="Label" parent="DirectionNode/NameNode"]
 margin_left = -20.0
 margin_top = -35.0
 margin_right = 20.0

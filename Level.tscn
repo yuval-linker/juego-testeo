@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://player/Brujilda.tscn" type="PackedScene" id=1]
 [ext_resource path="res://platforms/grass_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://background/Free DEMO Pixel Skies Background pack by Digital Moons/Parallax Pixel Skies 240x135px/Demo 02 Parallax Pixel Sky/demo02_PixelSky_layer03.png" type="Texture" id=3]
 [ext_resource path="res://background/Free DEMO Pixel Skies Background pack by Digital Moons/Parallax Pixel Skies 240x135px/Demo 02 Parallax Pixel Sky/demo02_PixelSky_layer01.png" type="Texture" id=4]
@@ -54,10 +53,6 @@ __meta__ = {
 scale = Vector2( 6, 6 )
 texture = ExtResource( 3 )
 centered = false
-
-[node name="Brujilda" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 564.83, 401.795 )
 
 [node name="TileMap" type="TileMap" parent="." groups=[
 "platforms",

@@ -1,6 +1,6 @@
+class_name Potion
 extends Area2D
 
-class_name Potion
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 var linear_vel = Vector2.ZERO

@@ -15,8 +15,11 @@ puppet var puppet_scale = 1
 puppet var _facing_right = true
 var _second_jump = true
 puppet var _equipped
+var on_floor = true
+puppet var puppet_floor = true
 
 var twinkle = false
+var potion_index = 0
 var _time: float = 0.0
 
 # Classes
@@ -25,8 +28,9 @@ var SpacePotion = preload("res://real_potions/SpacePotion.tscn")
 
 onready var playback = $AnimationTree["parameters/playback"]
 onready var direction_timer = $DirectionTimer
-onready var spawner = $PotionSpawn
-onready var nameNode = $NameNode
+onready var spawner = $DirectionNode/PotionSpawn
+onready var nameNode = $DirectionNode/NameNode
+onready var directionNode = $DirectionNode
 
 func _ready() -> void:
 	$AnimationTree.active = true
@@ -34,10 +38,10 @@ func _ready() -> void:
 	_equipped = Potion
 
 func _physics_process(delta: float) -> void:
-	var on_floor = is_on_floor()
 	# Every input
 	if is_network_master():
 		lineal_vel = move_and_slide(lineal_vel, Vector2.UP)
+		on_floor = is_on_floor()
 		var target_vel = Input.get_action_strength("right") - Input.get_action_strength("left")
 		lineal_vel.x = move_toward(lineal_vel.x, target_vel * SPEED, ACCELERATION)
 		if not on_floor:
@@ -60,20 +64,39 @@ func _physics_process(delta: float) -> void:
 		
 		if Input.is_action_pressed("left") and not Input.is_action_pressed("right") and _facing_right and direction_timer.is_stopped():
 			_facing_right = false
-			scale.x = -1
 		if Input.is_action_pressed("right") and not Input.is_action_pressed("left") and not _facing_right and direction_timer.is_stopped():
 			_facing_right = true
-			scale.x = -1
 		
-		rset("puppet_pos", position)
-		rset("lineal_vel", lineal_vel)
-		rset("puppet_scale", scale.x)
-		rset("_facing_right", _facing_right)
+		if Input.is_action_just_pressed("throw"):
+			var potion_name = get_name() + str(potion_index)
+			# Mal sistema de nombre :c
+			potion_index += 1 % 50
+			var cursor_pos = get_global_mouse_position()
+			var spawn_pos = spawner.global_position
+			if cursor_pos.x < global_position.x and _facing_right:
+				_facing_right = false
+				spawn_pos.x -= 2*spawner.position.x
+				direction_timer.start()
+			if cursor_pos.x > global_position.x and not _facing_right:
+				_facing_right = true
+				spawn_pos.x += 2*spawner.position.x
+				direction_timer.start()
+			rpc("throw", potion_name, spawn_pos, cursor_pos, get_tree().get_network_unique_id())
+	
+
+		print("Pre: ", _facing_right)
+		rset_unreliable("puppet_pos", position)
+		rset_unreliable("lineal_vel", lineal_vel)
+		rset_unreliable("_facing_right", _facing_right)
+		rset_unreliable("puppet_floor", on_floor)
 	else:
 		position = puppet_pos
 		scale.x = puppet_scale
+		on_floor = puppet_floor
 	
-	nameNode.scale.x = 1 if _facing_right else -1
+	print("Post: ", _facing_right)
+	directionNode.scale.x = 1 if _facing_right else -1
+	nameNode.scale.x = directionNode.scale.x
 	
 	if on_floor:
 		if abs(lineal_vel.x) > 10:
@@ -151,11 +174,10 @@ func _physics_process(delta: float) -> void:
 #		modulate = Color(1, 1, 1, 1)
 #		_time = 0.0
 
-remotesync func throw(potion_name, cursor_pos, by_who):
+remotesync func throw(potion_name, spawn_pos, cursor_pos, by_who):
 	var potion = _equipped.instance()
 	potion.set_name(potion_name)
-	potion.player = by_who
-	var spawn_pos = spawner.position
+	potion.player = get_node("../" + str(by_who))
 	potion.position = spawn_pos
 	var force = (cursor_pos - spawn_pos).normalized() * THROWFORCE
 	potion.throw(force)
@@ -213,12 +235,10 @@ master func damaged(_by_who, dmg):
 
 
 func set_player_name(new_name):
-	$NameNode/Label.set_text(new_name)
+	$DirectionNode/NameNode/Label.set_text(new_name)
 
 master func _on_directionTimer_timeout() -> void:
 	if Input.is_action_pressed("right") and not _facing_right:
 		_facing_right = true
-		scale.x = -1
 	if Input.is_action_pressed("left") and _facing_right:
 		_facing_right = false
-		scale.x = -1

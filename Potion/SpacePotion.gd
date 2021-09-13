@@ -21,13 +21,17 @@ func _physics_process(delta: float) -> void:
 func throw(direction):
 	linear_vel = direction
 
+func _destroy():
+	player.potion_index -= 1
+	queue_free()
+
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("platforms"):
 		emit_signal("teleport", global_position)
-		queue_free()
+		_destroy()
 
 func _on_screen_exited() -> void:
-	queue_free()
+	_destroy()
 
 func drink(caller: KinematicBody2D):
 	$Sprite.visible = false
