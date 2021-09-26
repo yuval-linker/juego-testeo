@@ -8,6 +8,8 @@ var peer = null
 # Name for player
 var player_name = "This Player"
 
+var player_nodes = {}
+
 # format id->name
 var players = {}
 var players_ready = []
@@ -78,6 +80,7 @@ remote func pre_start_game(spawn_points):
 			player.set_player_name(players[p_id])
 		
 		level.get_node("Players").add_child(player)
+		player_nodes[p_id] = player
 	# You can set up hud or score things here
 	#
 	#

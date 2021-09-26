@@ -84,7 +84,6 @@ func _physics_process(delta: float) -> void:
 			rpc("throw", potion_name, spawn_pos, cursor_pos, get_tree().get_network_unique_id())
 	
 
-		print("Pre: ", _facing_right)
 		rset_unreliable("puppet_pos", position)
 		rset_unreliable("lineal_vel", lineal_vel)
 		rset_unreliable("_facing_right", _facing_right)
@@ -94,7 +93,6 @@ func _physics_process(delta: float) -> void:
 		scale.x = puppet_scale
 		on_floor = puppet_floor
 	
-	print("Post: ", _facing_right)
 	directionNode.scale.x = 1 if _facing_right else -1
 	nameNode.scale.x = directionNode.scale.x
 	
