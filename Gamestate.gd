@@ -65,6 +65,8 @@ remote func pre_start_game(spawn_points):
 	get_tree().get_root().get_node("Lobby").hide()
 	
 	var player_scene = load("res://player/Brujilda.tscn")
+#	var healthHUD = level.get_node("Camera2D/HUD/PlayersHealth")
+	var healthHUD = level.get_node("HUD/PlayersHealth")
 	
 	for p_id in spawn_points:
 		var spawn_pos = level.get_node("SpawnPoints/" + str(spawn_points[p_id])).position
@@ -73,13 +75,16 @@ remote func pre_start_game(spawn_points):
 		player.set_name(str(p_id))
 		player.position = spawn_pos
 		player.set_network_master(p_id)
+		var this_name
 		
 		if p_id == get_tree().get_network_unique_id():
-			player.set_player_name(player_name)
+			this_name = player_name
 		else:
-			player.set_player_name(players[p_id])
+			this_name = players[p_id]
 		
+		player.set_player_name(this_name)
 		level.get_node("Players").add_child(player)
+		healthHUD.add_player(player, this_name)
 		player_nodes[p_id] = player
 	# You can set up hud or score things here
 	#

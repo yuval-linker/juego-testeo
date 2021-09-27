@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/circle.png" type="Texture" id=1]
+[ext_resource path="res://player/Little witch/69x56/Pngs/Idle Animation/face.png" type="Texture" id=2]
+[ext_resource path="res://ui/ring.png" type="Texture" id=3]
+[ext_resource path="res://ui/HealthUI.gd" type="Script" id=4]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform float transparency = 0.2;
+uniform float from = 0.3;
+uniform float to = 1.0;
+
+void fragment() {
+	vec4 input_color = texture(TEXTURE, UV);
+	if (input_color.a != 0.0) {
+		input_color.a = transparency;
+	}
+	COLOR = vec4(0,0,from + UV.y*(to-from),input_color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 5 )
+shader_param/transparency = 0.2
+shader_param/from = 0.6
+shader_param/to = 1.0
+
+[node name="HealthUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1280.0
+margin_bottom = -720.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource( 4 )
+margin_left = 7.50508
+margin_top = 6.65403
+margin_right = 21.5051
+margin_bottom = 20.6541
+rect_scale = Vector2( 8, 8 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="TextureProgress" parent="."]
+margin_right = 580.0
+margin_bottom = 580.0
+rect_scale = Vector2( 0.215911, 0.215911 )
+max_value = 200.0
+value = 200.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 3 )
+fill_mode = 5
+tint_under = Color( 0.654902, 0.0470588, 0.0470588, 1 )
+tint_progress = Color( 0.101961, 1, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterImg" type="TextureRect" parent="."]
+margin_left = 23.8654
+margin_top = 21.8243
+margin_right = 63.8654
+margin_bottom = 61.8243
+rect_scale = Vector2( 3.07984, 3.07984 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 21.865
+margin_top = 131.126
+margin_right = 100.865
+margin_bottom = 145.126
+text = "Player name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

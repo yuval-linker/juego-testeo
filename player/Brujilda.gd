@@ -17,10 +17,13 @@ var _second_jump = true
 puppet var _equipped
 var on_floor = true
 puppet var puppet_floor = true
+puppet var health = 200
 
 var twinkle = false
 var potion_index = 0
 var _time: float = 0.0
+
+signal health_changed(new_health)
 
 # Classes
 var Potion = preload("res://real_potions/Potion.tscn")
@@ -226,6 +229,8 @@ remotesync func drink(potion_name, by_who):
 		potion.queue_free()
 
 remotesync func get_hurt(dmg: int):
+	health -= dmg
+	emit_signal("health_changed", health)
 	print("ouch!", dmg)
 
 master func damaged(_by_who, dmg):

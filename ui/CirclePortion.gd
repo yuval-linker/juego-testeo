@@ -6,7 +6,22 @@ const ANGLE = deg2rad(-360.0/7)
 
 export (Color) var color = Color(1, 1, 1, 1)
 
-func _draw() -> void:
-	draw_line(CENTER, CENTER + Vector2(SIZE, 0), color)
-	draw_line(CENTER, CENTER + Vector2(cos(ANGLE)*SIZE, sin(ANGLE)*SIZE), color)
-	draw_arc(CENTER, SIZE, 0, ANGLE, 100, color)
+func _draw():
+   var center = Vector2(200, 200)
+   var radius = 80
+   var color = Color(1.0, 0.0, 0.0)
+   var angle_from = 75
+   var angle_to = 195
+
+   draw_circle_arc_poly(center, radius, angle_from, angle_to, color)
+
+func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
+	var nb_points = 32
+	var points_arc = PoolVector2Array()
+	points_arc.push_back(center)
+	var colors = PoolColorArray([color])
+
+	for i in range(nb_points + 1):
+		var angle_point = deg2rad(angle_from + i * (angle_to - angle_from) / nb_points - 90)
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius)
+	draw_polygon(points_arc, colors)
